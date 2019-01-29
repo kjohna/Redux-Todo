@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_COMPLETE } from '../actions';
 
 const initialState = {
   todoList: [
@@ -29,6 +29,16 @@ export default (state = initialState, action) => {
           ...state.todoList,
           newTodo
         ]
+      }
+    case TOGGLE_COMPLETE:
+      console.log("reducer, id: ", action.payload);
+      return {
+        ...state,
+        todoList: state.todoList.map((todo) => 
+          action.payload === todo.id
+          ? {...todo, completed: !todo.completed}
+          : todo
+        )
       }
     default:
       return state;

@@ -2,8 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import TodoItem from './TodoItem';
+import { toggleComplete } from '../../actions';
 
 class TodoList extends React.Component {
+
+  toggleComplete = id => {
+    console.log("toggle id: ", id);
+    this.props.toggleComplete(id);
+  }
 
   render() {
     return (
@@ -12,7 +18,9 @@ class TodoList extends React.Component {
         {this.props.todoList.map(todoItem => (
           <TodoItem 
             key={todoItem.id}
-            todoItem={todoItem} />
+            todoItem={todoItem}
+            onClick={() => this.toggleComplete(todoItem.id)}
+           />
         ))}
       </div>
     )
@@ -25,4 +33,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(TodoList);
+export default connect(mapStateToProps, { toggleComplete })(TodoList);
