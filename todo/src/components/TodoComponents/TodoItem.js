@@ -1,2 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+
+const TodoItem = props => {
+  return (
+    <div>
+      {props.todoItem.value}
+    </div>
+  );
+}
+
+export default TodoItem;
