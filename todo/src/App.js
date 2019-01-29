@@ -6,7 +6,7 @@ import './App.css';
 
 class App extends Component {
   render() {
-    console.log(Date.now());
+    // console.log(Date.now());
     return (
       <div className="App">
         <TodoList />
