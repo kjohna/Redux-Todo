@@ -19,8 +19,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return {
-        ...state,
-        todoList: state.todoList.push(action.payload)
+        todoList: [
+          ...state.todoList,
+          action.payload
+        ]
       }
     default:
       return state;

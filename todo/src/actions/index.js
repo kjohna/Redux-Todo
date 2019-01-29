@@ -1,12 +1,13 @@
 export const ADD_TODO = 'ADD_TODO';
 
-export const addTodo = (todoList) => {
-
+export const addTodo = (newTodo) => {
+  console.log("action: addTodo");
   return {
     type: ADD_TODO,
     payload: {
-      value: 'example Todo',
-      completed: false
+      value: newTodo,
+      completed: false,
+      id: Date.now()
     }
   };
 }

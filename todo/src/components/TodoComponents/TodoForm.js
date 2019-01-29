@@ -1,0 +1,49 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../../actions';
+
+class TodoForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      inputText: ""
+    }
+  }
+  
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("todo form submit");
+    this.props.addTodo(this.state.inputText);
+    this.setState(
+      {
+        inputText: ""
+      }
+    );
+  }
+
+  handleInput = (e) => {
+    this.setState(
+      {
+        [e.target.name]: e.target.value
+      }
+    )
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        New Todo:
+        <input 
+          type="text"
+          placeholder="New Todo"
+          value={this.state.inputText}
+          name="inputText"
+          onChange={this.handleInput}
+        ></input>
+        <button>Add Todo</button>
+      </form>
+    )
+  }
+}
+
+export default connect(() => {}, { addTodo })(TodoForm);
