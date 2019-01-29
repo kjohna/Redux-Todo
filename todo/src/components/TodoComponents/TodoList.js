@@ -2,13 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import TodoItem from './TodoItem';
-import { toggleComplete } from '../../actions';
+import { toggleComplete, deleteItem } from '../../actions';
 
 class TodoList extends React.Component {
 
   toggleComplete = id => {
-    console.log("toggle id: ", id);
+    // console.log("toggle id: ", id);
     this.props.toggleComplete(id);
+  }
+
+  deleteItem = id => {
+    // console.log("delete id: ", id);
+    this.props.deleteItem(id);
   }
 
   render() {
@@ -19,7 +24,8 @@ class TodoList extends React.Component {
           <TodoItem 
             key={todoItem.id}
             todoItem={todoItem}
-            onClick={() => this.toggleComplete(todoItem.id)}
+            toggleComplete={() => this.toggleComplete(todoItem.id)}
+            deleteItem={() => this.deleteItem(todoItem.id)}
            />
         ))}
       </div>
@@ -33,4 +39,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { toggleComplete })(TodoList);
+export default connect(mapStateToProps, { toggleComplete, deleteItem })(TodoList);
