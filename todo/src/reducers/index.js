@@ -18,10 +18,16 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
+      const newTodo = {
+        value: action.payload,
+        completed: false,
+        id: Date.now()
+      }
       return {
+        ...state,
         todoList: [
           ...state.todoList,
-          action.payload
+          newTodo
         ]
       }
     default:

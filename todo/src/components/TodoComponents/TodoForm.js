@@ -32,7 +32,6 @@ class TodoForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        New Todo:
         <input 
           type="text"
           placeholder="New Todo"

@@ -9,7 +9,6 @@ class App extends Component {
     console.log(Date.now());
     return (
       <div className="App">
-        hello
         <TodoList />
         <TodoForm />
       </div>
