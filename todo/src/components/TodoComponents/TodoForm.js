@@ -31,15 +31,17 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form className="container mx-auto px-4" onSubmit={this.handleSubmit}>
+      <form className="container mx-auto px-8 py-4" onSubmit={this.handleSubmit}>
         <input 
           type="text"
           placeholder="New Todo"
           value={this.state.inputText}
           name="inputText"
           onChange={this.handleInput}
+          className="rounded p-2 bg-grey-lighter focus:bg-white border-transparent focus:border-blue-light"
+          autoComplete="off"
         ></input>
-        <button>Add Todo</button>
+        <button className="rounded p-2 bg-transparent hover:bg-blue text-blue-dark hover:text-white">Add Todo</button>
       </form>
     )
   }

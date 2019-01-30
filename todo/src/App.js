@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     // console.log(Date.now());
     return (
-      <div className="App container mx-auto">
+      <div className="App container mx-auto px-20">
         <TodoList />
         <TodoForm />
       </div>
