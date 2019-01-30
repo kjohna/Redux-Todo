@@ -31,7 +31,7 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="container mx-auto px-4" onSubmit={this.handleSubmit}>
         <input 
           type="text"
           placeholder="New Todo"

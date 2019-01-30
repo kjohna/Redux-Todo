@@ -18,7 +18,7 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container mx-auto px-4">
         Todo List!
         {this.props.todoList.map(todoItem => (
           <TodoItem 
